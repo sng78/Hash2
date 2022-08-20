@@ -8,11 +8,11 @@ public class WordsChecker {
 
     public  WordsChecker(String text) {
         this.text = text;
+        String[] wordsArray = text.split("\\P{IsAlphabetic}+");
+        Collections.addAll(wordsSet, wordsArray);
     }
 
     public boolean hasWord(String word) {
-        String[] wordsArray = text.split("\\P{IsAlphabetic}+");
-        Collections.addAll(wordsSet, wordsArray);
         return wordsSet.contains(word);
     }
 }
